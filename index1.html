@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAVLY EMAD | CARTOON PORTFOLIO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables - Cartoon Color Palette */
+        :root {
+            --primary: #FF6B6B;
+            --primary-dark: #FF5252;
+            --secondary: #4ECDC4;
+            --accent: #FFD166;
+            --purple: #9B5DE5;
+            --blue: #118AB2;
+            --dark: #073B4C;
+            --light: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --border-radius: 24px;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FFEAF1 0%, #E2F0FF 100%);
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: slideIn 0.6s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 0 20px;
+            position: relative;
+        }
+
+        .name {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.05);
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .tagline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Home Section */
+        .home-content {
+            padding: 40px 0;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 4px solid var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 50%, var(--secondary) 100%);
+            z-index: -1;
+            border-radius: var(--border-radius);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            border: 6px solid var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+            border-color: var(--primary);
+        }
+
+        .status {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 50px;
+        }
+
+        .description {
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 6px 0 var(--primary-dark);
+            border: 3px solid var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .youtube-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 var(--primary-dark);
+        }
+
+        .youtube-btn i {
+            font-size: 1.4rem;
+        }
+
+        /* About Section */
+        .about-content {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 6px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border: 4px solid var(--dark);
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--secondary);
+        }
+
+        .info-card:nth-child(2)::before {
+            background: var(--primary);
+        }
+
+        .info-card:nth-child(3)::before {
+            background: var(--purple);
+        }
+
+        .info-card:nth-child(4)::before {
+            background: var(--accent);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .info-card:nth-child(2) i {
+            color: var(--primary);
+        }
+
+        .info-card:nth-child(3) i {
+            color: var(--purple);
+        }
+
+        .info-card:nth-child(4) i {
+            color: var(--accent);
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-card p {
+            color: var(--dark);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .youtube-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            border: 4px solid var(--dark);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .youtube-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--primary);
+        }
+
+        .youtube-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .youtube-icon {
+            font-size: 5rem;
+            color: #FF0000;
+        }
+
+        .youtube-info h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .youtube-info p {
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        /* Music Section */
+        .music-content {
+            padding: 60px 0;
+        }
+
+        .player-container {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 4px solid var(--dark);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .player-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--purple);
+        }
+
+        .player-header {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .player-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .playlist {
+            max-height: 450px;
+            overflow-y: auto;
+        }
+
+        .playlist::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .playlist::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+
+        .track {
+            display: flex;
+            align-items: center;
+            padding: 20px 30px;
+            border-bottom: 2px dashed var(--accent);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .track:hover {
+            background: rgba(78, 205, 196, 0.1);
+        }
+
+        .track.active {
+            background: rgba(155, 93, 229, 0.1);
+        }
+
+        .track-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--dark);
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .track-info {
+            flex: 1;
+            margin: 0 25px;
+        }
+
+        .track-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .track-duration {
+            color: var(--blue);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .play-btn {
+            background: var(--primary);
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 0 var(--primary-dark);
+            border: 2px solid var(--dark);
+        }
+
+        .play-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--primary-dark);
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            padding: 25px 30px;
+            background: rgba(255, 209, 102, 0.2);
+            border-top: 2px dashed var(--accent);
+        }
+
+        .control-btn {
+            background: var(--secondary);
+            border: 2px solid var(--dark);
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin: 0 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 0 #3aa89d;
+        }
+
+        .control-btn:hover {
+            background: #3aa89d;
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #3aa89d;
+        }
+
+        .progress-container {
+            flex: 1;
+            height: 10px;
+            background: white;
+            border-radius: 10px;
+            margin: 0 25px;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid var(--dark);
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--purple) 100%);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .time-display {
+            color: var(--dark);
+            font-size: 0.9rem;
+            min-width: 100px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Gallery Section */
+        .gallery-content {
+            padding: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            aspect-ratio: 1;
+            border: 4px solid var(--dark);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--card-bg);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            border-top: 4px solid var(--dark);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            transition: var(--transition);
+            padding: 10px 20px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        .nav-item i {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .nav-item span {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .nav-item.active::after {
+            width: 30px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .signature {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .name {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .profile-card {
+                padding: 30px 20px;
+            }
+            
+            .youtube-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .nav-container {
+                padding: 12px 0;
+            }
+            
+            .nav-item {
+                padding: 8px 15px;
+            }
+            
+            .nav-item i {
+                font-size: 1.4rem;
+            }
+            
+            .nav-item span {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .profile-card {
+                padding: 25px 15px;
+            }
+            
+            .player-controls {
+                padding: 20px;
+            }
+            
+            .control-btn {
+                margin: 0 8px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .track {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="name">PAVLY EMAD</h1>
+            <div class="tagline">CREATIVE PORTFOLIO</div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Home Tab -->
+        <section id="home" class="tab-content active">
+            <div class="home-content">
+                <div class="profile-card">
+                    <img src="https://i.ibb.co/dDVSRPD/ss.png" alt="Profile Picture" class="profile-image">
+                    <div class="status">GOD IS LOVE</div>
+                    <p class="description">
+                        Creative professional exploring the intersection of technology and human experience. 
+                        Based in Texas, delivering possibilities with Uber while crafting digital experiences 
+                        that inspire and connect.
+                    </p>
+                    <a href="https://youtube.com/@SoundSurge3" target="_blank" class="youtube-btn">
+                        <i class="fab fa-youtube"></i> My YouTube Channel
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Tab -->
+        <section id="about" class="tab-content">
+            <div class="about-content">
+                <h2 class="section-title">About Me</h2>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>TEXAS, UNITED STATES</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-birthday-cake"></i>
+                        <h3>Age</h3>
+                        <p>33 YEARS OLD</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Occupation</h3>
+                        <p>UBER DELIVERY</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Motto</h3>
+                        <p>GOD IS LOVE</p>
+                    </div>
+                </div>
+                
+                <div class="youtube-section">
+                    <div class="youtube-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="youtube-info">
+                        <h3>SoundSurge on YouTube</h3>
+                        <p>Discover my curated music collection and creative content. From chill vibes to energetic beats, explore sounds that move the soul.</p>
+                        <a href="https://youtube.com/@SoundSurge3" target="_blank" class="youtube-btn">
+                            <i class="fab fa-youtube"></i> Visit Channel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Music Tab -->
+        <section id="music" class="tab-content">
+            <div class="music-content">
+                <h2 class="section-title">Sound Collection</h2>
+                <div class="player-container">
+                    <div class="player-header">
+                        <h2>Now Playing</h2>
+                    </div>
+                    <div class="playlist">
+                        <!-- Tracks will be populated by JavaScript -->
+                    </div>
+                    <div class="player-controls">
+                        <button class="control-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                        <button class="control-btn" id="play-pause-btn"><i class="fas fa-play"></i></button>
+                        <button class="control-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+                        <div class="progress-container" id="progress-container">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                        <div class="time-display" id="time-display">0:00 / 0:00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Tab -->
+        <section id="gallery" class="tab-content">
+            <div class="gallery-content">
+                <h2 class="section-title">Visual Moments</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://i.ibb.co/dPFpGv9/Default-Cute-anime-boy-pray-3d-art-cartoon-blue-1-30826f36-54b1-49e4-b141-5caad93c4a2c-0.jpg" alt="Mountain Landscape">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.ibb.co/Jyq80hX/bfa64e7da2612eb344663aa3fbcf2f59.png" alt="Northern Lights">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.ibb.co/vLw8xv0/sswe.png" alt="Forest Path">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.ibb.co/pXfwCcv/2d79b46de2deb3744fd330d815b76751.jpg" alt="Misty Forest">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-item active" data-tab="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="about">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="music">
+                <i class="fas fa-music"></i>
+                <span>Music</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="gallery">
+                <i class="fas fa-images"></i>
+                <span>Gallery</span>
+            </a>
+        </div>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 PAVLY EMAD. ALL RIGHTS RESERVED.</p>
+            <p class="signature">GOD IS LOVE</p>
+        </div>
+    </footer>
+
+    <!-- Audio elements for sound effects -->
+    <audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-game-ball-tap-2073.mp3"></audio>
+    <audio id="hoverSound" src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3"></audio>
+
+    <script>
+        // Tab Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const clickSound = document.getElementById('clickSound');
+            const hoverSound = document.getElementById('hoverSound');
+            
+            // Play sound on navigation click
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Play click sound
+                    clickSound.currentTime = 0;
+                    clickSound.volume = 0.7;
+                    clickSound.play();
+                    
+                    // Remove active class from all items and tabs
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Show corresponding tab content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+                
+                // Play sound on hover
+                item.addEventListener('mouseenter', function() {
+                    hoverSound.currentTime = 0;
+                    hoverSound.volume = 0.3;
+                    hoverSound.play();
+                });
+            });
+            
+            // Music Player Functionality
+            const playlist = document.querySelector('.playlist');
+            const progressBar = document.getElementById('progress-bar');
+            const progressContainer = document.getElementById('progress-container');
+            const timeDisplay = document.getElementById('time-display');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            // Track data with actual audio URLs
+            const tracks = [
+                {
+                    title: "Asphalt Heartbeat",
+                    duration: "3:45",
+                    src: "https://audio.jukehost.co.uk/g1mnUVIICxoL3IQgWT1D1eBE3PebQz2z"
+                },
+                {
+                    title: "Gönül Yarası",
+                    duration: "4:20",
+                    src: "https://audio.jukehost.co.uk/w6ljByylsvFth6LBE48dCCqdd0Ki9mUH"
+                },
+                {
+                    title: "Good Bye Yesterday",
+                    duration: "3:15",
+                    src: "https://audio.jukehost.co.uk/aRDwAN2KfAQ3rC2SqPdxEbF3eCtsz6A5"
+                },
+                {
+                    title: "Run It",
+                    duration: "5:10",
+                    src: "https://audio.jukehost.co.uk/rJ2qe2cxumUkdpqjXBzgIsPw5xfsWLNh"
+                },
+                {
+                    title: "Söndüremezler",
+                    duration: "4:05",
+                    src: "https://audio.jukehost.co.uk/ji9ogU5yJ3bkAatfaf4RO6FpV2YAgDQK"
+                },
+                {
+                    title: "YAR YAR",
+                    duration: "3:50",
+                    src: "https://audio.jukehost.co.uk/P4HsEtSDGNmBevczBrJLakNOt3fweydf"
+                }
+            ];
+            
+            let currentTrackIndex = 0;
+            let isPlaying = false;
+            let audio = new Audio();
+            
+            // Create playlist UI
+            function createPlaylist() {
+                playlist.innerHTML = '';
+                
+                tracks.forEach((track, index) => {
+                    const trackElement = document.createElement('div');
+                    trackElement.className = 'track';
+                    if (index === currentTrackIndex) {
+                        trackElement.classList.add('active');
+                    }
+                    
+                    trackElement.innerHTML = `
+                        <div class="track-number">${index + 1}</div>
+                        <div class="track-info">
+                            <div class="track-title">${track.title}</div>
+                            <div class="track-duration">${track.duration}</div>
+                        </div>
+                        <button class="play-btn">
+                            <i class="fas ${index === currentTrackIndex && isPlaying ? 'fa-pause' : 'fa-play'}"></i>
+                        </button>
+                    `;
+                    
+                    trackElement.addEventListener('click', () => {
+                        clickSound.currentTime = 0;
+                        clickSound.play();
+                        playTrack(index);
+                    });
+                    
+                    playlist.appendChild(trackElement);
+                });
+            }
+            
+            // Play a specific track
+            function playTrack(index) {
+                if (index === currentTrackIndex && isPlaying) {
+                    pauseTrack();
+                    return;
+                }
+                
+                currentTrackIndex = index;
+                audio.src = tracks[currentTrackIndex].src;
+                audio.play().then(() => {
+                    isPlaying = true;
+                    updatePlayButton();
+                    createPlaylist();
+                    
+                    audio.addEventListener('timeupdate', updateProgress);
+                    audio.addEventListener('ended', nextTrack);
+                }).catch(error => {
+                    console.error("Error playing audio:", error);
+                    // Fallback: Try to play the next track if current fails
+                    if (currentTrackIndex < tracks.length - 1) {
+                        playTrack(currentTrackIndex + 1);
+                    }
+                });
+            }
+            
+            // Pause current track
+            function pauseTrack() {
+                audio.pause();
+                isPlaying = false;
+                updatePlayButton();
+                createPlaylist();
+            }
+            
+            // Play or pause track
+            function togglePlayPause() {
+                clickSound.currentTime = 0;
+                clickSound.play();
+                
+                if (isPlaying) {
+                    pauseTrack();
+                } else {
+                    if (audio.src) {
+                        audio.play().then(() => {
+                            isPlaying = true;
+                            updatePlayButton();
+                            createPlaylist();
+                        });
+                    } else {
+                        playTrack(currentTrackIndex);
+                    }
+                }
+            }
+            
+            // Next track
+            function nextTrack() {
+                currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+                playTrack(currentTrackIndex);
+            }
+            
+            // Previous track
+            function prevTrack() {
+                currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+                playTrack(currentTrackIndex);
+            }
+            
+            // Update progress bar
+            function updateProgress() {
+                const { duration, currentTime } = audio;
+                if (isNaN(duration)) return;
+                
+                const progressPercent = (currentTime / duration) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+                
+                // Update time display
+                const formatTime = (time) => {
+                    const minutes = Math.floor(time / 60);
+                    const seconds = Math.floor(time % 60);
+                    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                };
+                
+                timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+            }
+            
+            // Set progress on click
+            progressContainer.addEventListener('click', (e) => {
+                const width = progressContainer.clientWidth;
+                const clickX = e.offsetX;
+                const duration = audio.duration;
+                
+                if (!isNaN(duration)) {
+                    audio.currentTime = (clickX / width) * duration;
+                }
+            });
+            
+            // Update play button
+            function updatePlayButton() {
+                const icon = playPauseBtn.querySelector('i');
+                icon.className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
+            }
+            
+            // Event listeners for control buttons
+            playPauseBtn.addEventListener('click', togglePlayPause);
+            prevBtn.addEventListener('click', () => {
+                clickSound.currentTime = 0;
+                clickSound.play();
+                prevTrack();
+            });
+            nextBtn.addEventListener('click', () => {
+                clickSound.currentTime = 0;
+                clickSound.play();
+                nextTrack();
+            });
+            
+            // Initialize the player
+            createPlaylist();
+            audio.volume = 0.7;
+        });
+    </script>
+</body>
+</html>
